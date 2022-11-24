@@ -1,0 +1,69 @@
+/*
+	Mohamed Gulaid | 2013
+	Modified Version of HTML5 up Template.
+*/
+
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body
+	{
+		font-size: 11pt;
+		min-width: 960px;
+	}
+
+/*********************************************************************************/
+/* Wrappers                                                                      */
+/*********************************************************************************/
+
+	.wrapper
+	{
+		padding: 3em 0 3em 0em;
+		text-align: left;
+	}
+	
+		.wrapper-first
+		{
+			padding-top: 5em;
+		}
+
+		.wrapper-style4 .row-special
+		{
+			margin: auto;
+			padding: 2em 0 2em 0;
+		}
+		.embed-container {
+    position: relative;
+    padding-bottom: 52%; /* 16/9 ratio */
+    padding-top: 30px; /* IE6 workaround*/
+    height: 0;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 480px;
+    vertical-align: center;
+    text-align: center;
+}
+
+/*********************************************************************************/
+/* Articles                                                                      */
+/*********************************************************************************/
+
+	#top
+	{
+	}
+
+		#top .me
+		{
+			width: 15.5em;
+			height: 14.5em;
+			margin-top: 12em;
+			margin-left: 5em;
+		}
