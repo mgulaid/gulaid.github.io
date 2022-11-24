@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Smart Data Beta</title>
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+  <link href="stylesheets/app.less" media="all" rel="stylesheet/less" type="text/css" />
+  <script src="javascripts/less-1.0.41.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    // Under development you should uncomment the following lines,
+    // to make the browser refresh the changes that you are makeing in your app.less file.
+    less.env = "development";
+    less.watch();
+  </script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+  <header>
+    <div class="row">
+      <div class="column grid-16">
+        <hgroup>
+          <h1 class="logo">Smart Data</h1>
+          <h5>Towards Healthy Life</h5>
+        </hgroup>
+      </div>
+    </div>
+  </header>
+  
+  <div id="content">
+  	<div id="header-placeholder"></div>
+	<div class="row">
+        <div class="column grid-4-fix">
+
+          <h4 style="margin-bottom: 20px;">Don't know the new place you are moving to? SmartData is here to help!</h4>
+			<div id="intro">
+				<p style="margin-top: 20px;">Smart Data gathers and analyzes data about natural environment, amenities, human behaviors, demographic information and diseases from government agencies and trustworthy health organizations to tell you how healthy your neighborhood is.</p>
+			</div>
+			
+			<div style="margin-bottom: 20px;">
+			<a class="btn sbtn" id="start-search">Start a new search</a>
+			<a id="back-to-step-1" style="display:none;" class="">< Back &nbsp; &nbsp;</a>
+			<span style="width: 15px"></span>
+			<a id="quit" style="display:none;" class="">Cancel Search</a>
+			<a id="back-to-main" style="display:none;">&nbsp; &nbsp;&nbsp;&nbsp;Cancel</a>
+			
+			<div class="clear"></div>
+			</div>
+			
+			<form action="/" method="post">
+			<div id="step-1" style="display: none;">
+				<h6 style="font-size: 18px; margin-bottom: 15px;">Search for locations of your interest.</h6>
+				<input type="text" name="name" id="name" size="30" placeholder="Enter detailed address, city or just county name." class="field required" style="width:350px"/>
+				<a style="position: relative; top: 8px;" id="add-new-location"><span class="i" style="font-size: 16px;">+</span> Add location</a><a style="position: relative; top: 8px; display:none;" id="remove-location">&nbsp; &nbsp;<span class="i" style="font-size: 16px;">&nbsp;-</span> Remove last one</a><div style="float:right;"> <a class="btn sbtn" id="to-step-2">Continue</a></div>
+				<div class="clear"></div>
+           	</div>
+           	
+           	<div id="step-2" style="display: none;">
+				<h6 style="font-size: 18px; margin-bottom: 15px;">One more step. We customize the result just for you. <a>&nbsp;Why do we need this?</a></h6>
+				
+				<fieldset>
+				<legend>I am a</legend>
+				  <label><input type="radio" name="radio" value="1" checked="checked" class="radio" />Teenager</label>
+				  <label><input type="radio" name="radio" value="2" class="radio" />College Student</label>
+				  <label><input type="radio" name="radio" value="3" class="radio" />Young Professional</label>
+				  <label><input type="radio" name="radio" value="4" class="radio" />Mid-life Professional</label>
+				  <label><input type="radio" name="radio" value="5" class="radio" />Retired</label>
+				</fieldset>
+				
+				<fieldset>
+				<legend>And I am</legend>
+				<label><input type="checkbox" name="checkbox" value="1"  class="required" />Married</label>
+				<label><input type="checkbox" name="checkbox" value="1"  class="required" />Living with Children</label>
+				</fieldset>
+				<a style="position: relative; top: 8px;" id="skip-to-result"><span class="i" style="font-size: 16px;">V</span> Skip and use default</a><div style="float:right;"> <a class="btn sbtn" id="show-result">Show Result</a></div>
+				<div class="clear"></div>
+           	</div>
+         
+          </form>
+          <div id="rank-list">
+          <h6 style="margin-top: 25px">Top 5 Healthy Areas in Michigan</h6> <a href="#" style="margin-bottom: 15px; display: block;">Change my location</a>
+          <ol>
+          	<li><a href="#">Ann Arbor</a> <span style="float:right;">A+</span></li>
+          	<li><a href="#">Lansing</a> <span style="float:right;">A-</span></li>
+          	<li><a href="#">Farmington Hills</a> <span style="float:right;">A-</span></li>
+          	<li><a href="#">Grand Rapids</a> <span style="float:right;">B+</span></li>
+          	<li><a href="#">Siagnaw</a> <span style="float:right;">B+</span></li>
+          </ol>
+          <div class="clear"></div>
+          </div>
+          
+          <div id="result" style="display:none;">
+          <h6  style="margin-bottom: 10px;">Regional Health Score</h6>
+          <div style="margin-bottom: 20px;"><span class="i" style="font-size: 16px;">x</span><span>&nbsp; &nbsp;Profile: Married young professional &nbsp; &nbsp;</span><a href="#" style="float: right;">Change</a>
+          </div>
+          <div class="result-row" style="position: relative;">
+          	<span class="number">1.</span>
+          	<span class="result-address">334 Beakes St, Ann Arbor, MI, 48104</span>
+          	<span class="score green">B+</span>
+          	<div class="vis" style="top: 40px; left: 25px;">
+          		<img src="images/visual.png" style="height: 110px; width: 110px;">
+          	</div>
+          	<ul class="score-detail-wrapper">
+          		<li style="color: green;">4.9/5&nbsp; &nbsp;Nature</li>
+          		<li style="color: purple;">3.2/5&nbsp; &nbsp;Facility</li>
+          		<li style="color: #3d98f1;">3.9/5&nbsp; &nbsp;Human Behavior</li>
+          		<li style="color: orange;">3.1/5&nbsp; &nbsp;Demography</li>
+          		<li style="color: red;">4.1/5&nbsp; &nbsp;Disease </li>
+          	<ul>
+          </div>
+          <div class="clear"></div>
+          </div>
+          
+          
+          <p style="margin-top: 20px; color: #999;">If you are a real estate agent interested in SmartData for your business, please <a href="#">contact us</a>.</p>
+			
+        </div>
+        <div class="column grid-12-fluid">
+        	<ul class="h-menu">
+        		<li>Display:</li>
+        		<li><a href="#">Overall</a></li>
+        		<li><a href="#">Natural Environment</a></li>
+        		<li><a href="#">Facility</a></li>
+        		<li><a href="#">Demography</a></li>
+        		<li><a href="#">Human Behavior</a></li>
+        		<li><a href="#">Disease</a></li>
+        	</ul>
+          <iframe width="900" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Ann+Arbor&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=37.188995,79.013672&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Ann+Arbor,+Washtenaw,+Michigan&amp;ll=42.280865,-83.742943&amp;spn=0.152406,0.308647&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Ann+Arbor&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=37.188995,79.013672&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Ann+Arbor,+Washtenaw,+Michigan&amp;ll=42.280865,-83.742943&amp;spn=0.152406,0.308647&amp;z=12&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+         </div>
+      
+  </div>
+  <footer style="width: 100%;">
+    <div class="row" >
+      <div class="column grid-16">
+        <p class="tac">&copy; 2012 | <strong>SmartData</strong> is a demo application designed by Group Name from University of Michigan.</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+  
+</body>
+<script type="text/javascript">
+$("#start-search").click(function(){
+	$("#step-1").fadeIn(200);
+	$("#start-search").hide(0)
+	$("#rank-list").hide(0);
+	$("#quit").fadeIn(200);
+	$("#intro").hide(0);
+	$("#result").hide(0);
+	$("#back-to-main").hide(0);
+	
+});
+
+$("#quit").click(function(){
+	$("#intro").fadeIn(100);
+	$("#step-1").hide(0);
+	$("#step-2").hide(0);
+	$("#start-search").fadeIn(100)
+	$("#rank-list").fadeIn(100);
+	$("#quit").hide(0);
+	$("#back-to-step-1").fadeOut(200);
+	$("#step-1 input:not(:first)").remove();
+	("#remove-location").hide(0);
+	
+});
+
+$("#to-step-2").click(function(){
+	$("#step-1").hide(0);
+	$("#step-2").fadeIn(200);
+	$("#back-to-step-1").show(0);
+	
+});
+
+$("#back-to-step-1").click(function(){
+	$("#step-1").fadeIn(200);
+	$("#step-2").hide(0);
+	$("#back-to-step-1").fadeOut(200);
+	
+});
+
+$("#add-new-location").click(function(){
+	$("#step-1 input").last().after("<input type='text' name='name' size='30' placeholder='Enter detailed address, city or just county name.' class='field' style='width:350px'/>");
+	$("#remove-location").show(0);
+});
+
+$("#remove-location").click(function(){
+	var count=$("#step-1 input").length;
+	if (count>2){
+		$("#step-1 input").last().remove();
+		}
+	else if (count>1){
+		$("#step-1 input").last().remove();
+		$("#remove-location").hide(0);
+	}
+	else{}
+	
+});
+
+$("#show-result").click(function(){
+	$("#result").fadeIn(200);
+	$("#step-2").hide(0);
+	$("#back-to-step-1").fadeOut(0);
+	$("#start-search").show(0);
+	$("#quit").hide(0);
+	$("#back-to-main").show(0);
+	
+});
+
+$("#back-to-main").click(function(){
+	$("#start-search").show(0)
+	$("#rank-list").show(0);
+	$("#intro").show(0);
+	$("#result").hide(0);
+	$("#back-to-main").hide(0);
+	
+});
+</script>
+</html>
